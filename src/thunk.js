@@ -1,9 +1,17 @@
-const makeType = m => a => `${m}/${a}`
+const makeType = m => (a, isAsync) => {
+  if (isAsync) {
+    return {
+      START: `${m}/${a}-start`,    
+      SUCCESS: `${m}/${a}-success`,    
+      ERROR: `${m}/${a}-error`,    
+    }
+  }
+  return `${m}/${a}`
+}
 const t = makeType('thunk')
 
-const FETCH_START = t('start')
-const FETCH_SUCCESS = t('success')
-const FETCH_ERROR = t('error')
+const FETCH = t('fetch', true)
+
 
 const fetchStart = () => ({
     type:  FETCH_START,
