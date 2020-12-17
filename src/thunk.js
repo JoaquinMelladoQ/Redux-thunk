@@ -14,14 +14,14 @@ const FETCH = t('fetch', true)
 
 
 const fetchStart = () => ({
-    type:  FETCH_START,
+    type:  FETCH.START,
 })
 const fetchSuccess = payload => ({
-    type:  FETCH_SUCCESS,
+    type:  FETCH.SUCCESS,
     payload,
 })
 const fetchError = error => ({
-    type:  FETCH_ERROR,
+    type:  FETCH.ERROR,
     error,
 })
 
@@ -37,19 +37,19 @@ const initialState = {
     error: null,
 }
 
-function reducer (state = initialState, action) {
+export default function reducer (state = initialState, action) {
   switch (action.type) {
-    case FETCH_START:
+    case FETCH.START:
       return {
         ...state,
         fetching: true,
       }
-    case FETCH_SUCCESS:
+    case FETCH.SUCCESS:
       return {
         ...state,
         data: action.payload,
       } 
-    case FETCH_ERROR:
+    case FETCH.ERROR:
       return {
         ...state,
         error: action.error
@@ -60,7 +60,7 @@ function reducer (state = initialState, action) {
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default payload =>
+export const miThunk = payload =>
     async (dispatch, getState) => {
         dispatch(fetchStart())
         try {
