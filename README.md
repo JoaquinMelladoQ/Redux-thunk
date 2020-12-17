@@ -6,3 +6,9 @@
 + Redux-ducks
 + High Order Reducers
 + High Order Ducks
++ Object.keys(x).map(y => {
+    const obj = x[y]
+    console.log(obj)
+})
++ Type creators
++ Action creators
