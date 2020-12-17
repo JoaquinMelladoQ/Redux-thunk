@@ -26,6 +26,6 @@ export default payload =>
           dispatch(fetchSuccess(json))
           console.log(json)  
         } catch (error) {
-            
+          dispatch(fetchError(error))  
         }
 }
