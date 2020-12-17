@@ -23,7 +23,8 @@ export default payload =>
         try {
           const result = await fetch(url)
           const json = await result.json()
-          dispatch(fetchSuccess(json))  
+          dispatch(fetchSuccess(json))
+          console.log(json)  
         } catch (error) {
             
         }
