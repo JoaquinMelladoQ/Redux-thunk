@@ -12,7 +12,7 @@ function reducer (state = {}, action){
   return state
 }
 
-const store = createStore(reducer)
+const store = createStore(reducer, applyMiddleware(thunk))
 ReactDOM.render(
   <Provider store={store}>
     <App />
