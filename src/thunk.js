@@ -16,6 +16,38 @@ const fetchError = error => ({
 })
 
 const url = 'https://jsonplaceholder.typicode.com/users'
+
+
+const initialState = {
+  data: {
+    1: { name: 'Noticia' },
+  },
+    fetching: false,
+    error: null,
+}
+
+function reducer (state = initialState, action) {
+  switch (action.type) {
+    case FETCH_START:
+      return {
+        ...state,
+        fetching: true,
+      }
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        data: action.payload,
+      } 
+    case FETCH_ERROR:
+      return {
+        ...state,
+        error: action.error
+      }
+    default:
+      return state
+  }
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default payload =>
     async (dispatch, getState) => {
