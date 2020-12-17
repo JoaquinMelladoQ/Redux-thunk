@@ -5,17 +5,13 @@ import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import './index.css'
 import App from './App'
+import reducer from './thunk'
 import reportWebVitals from './reportWebVitals'
 
 
 const initialState = {
   data: [1, 2, 3],
   selected: 1,
-}
-
-function reducer (state = initialState, action){
-  console.log(action)
-  return state
 }
 
 const store = createStore(reducer, applyMiddleware(thunk))

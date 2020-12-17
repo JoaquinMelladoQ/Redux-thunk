@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import miThunk from './thunk'
+import {miThunk} from './thunk'
 import logo from './logo.svg'
 import './App.css'
 
