@@ -1,9 +1,9 @@
+const makeType = m => a => `${m}/${a}`
+const t = makeType('thunk')
 
-
-
-const FETCH_START = 'thunk/start'
-const FETCH_SUCCESS = 'thunk/success'
-const FETCH_ERROR = 'thunk/error'
+const FETCH_START = t('start')
+const FETCH_SUCCESS = t('success')
+const FETCH_ERROR = t('error')
 
 const fetchStart = () => ({
     type:  FETCH_START,
