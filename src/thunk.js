@@ -1,7 +1,9 @@
 
-const FETCH_START = 'start'
-const FETCH_SUCCESS = 'success'
-const FETCH_ERROR = 'error'
+
+
+const FETCH_START = 'thunk/start'
+const FETCH_SUCCESS = 'thunk/success'
+const FETCH_ERROR = 'thunk/error'
 
 const fetchStart = () => ({
     type:  FETCH_START,
