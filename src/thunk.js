@@ -23,6 +23,7 @@ const initialState = {
     1: { name: 'Noticia' },
   },
     fetching: false,
+    fetched: false,
     error: null,
 }
 
