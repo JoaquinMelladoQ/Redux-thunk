@@ -31,10 +31,7 @@ const t = makeType('thunk')
 
 const FETCH = t('fetch', true)
 
-
-const fetchStart = mac(FETCH.START)
-const fetchSuccess = mac(FETCH.SUCCESS, 'payload')
-const fetchError = mac(FETCH.ERROR, 'error')
+const fetchAc = asyncMac(FETCH)
 
 const url = 'https://jsonplaceholder.typicode.com/users'
 
@@ -74,13 +71,13 @@ export default function reducer (state = initialState, action) {
 // eslint-disable-next-line import/no-anonymous-default-export
 export const miThunk = payload =>
     async (dispatch, getState) => {
-        dispatch(fetchStart())
+        dispatch(fetchAc.start())
         try {
           const result = await fetch(url)
           const json = await result.json()
-          dispatch(fetchSuccess(json))
+          dispatch(fetchAc.success(json))
           console.log(json)  
         } catch (error) {
-          dispatch(fetchError(error))  
+          dispatch(fetchAc.error(error))  
         }
 }
