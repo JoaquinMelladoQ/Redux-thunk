@@ -1,33 +1,23 @@
 import { makeType, asyncMac, createReducer } from './ducks-helper'
-
+import { fetchReducer } from './hors'
 
 const t = makeType('thunk')
-
 const FETCH = t('fetch', true)
-
 const fetchAc = asyncMac(FETCH)
-
-const url = 'https://jsonplaceholder.typicode.com/users'
-
 
 const initialState = {
   data: {
     1: { name: 'Noticia' },
   },
-    fetching: false,
-    fetched: false,
-    error: null,
+  fetching: false,
+  fetched: false,
+  error: null,
 }
-
-export default createReducer(initialState, {
-  [FETCH.START]: state => ({ ...state, fetching: true }),
-  [FETCH.SUCCESS]: (state, { payload }) => ({ ...state, data: payload }),
-  [FETCH.ERROR]: (state, { error }) => ({ ...state, error }),
-})
-
+export default createReducer(initialState, fetchReducer(FETCH))
 // eslint-disable-next-line import/no-anonymous-default-export
 export const miThunk = payload =>
     async (dispatch, getState) => {
+        const url = 'https://jsonplaceholder.typicode.com/users'
         dispatch(fetchAc.start())
         try {
           const result = await fetch(url)
