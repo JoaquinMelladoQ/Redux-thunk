@@ -19,25 +19,14 @@ function mac(type, ...argNames) {
   }
 }
 
-
-
-
 const t = makeType('thunk')
 
 const FETCH = t('fetch', true)
 
 
-const fetchStart = () => ({
-    type:  FETCH.START,
-})
-const fetchSuccess = payload => ({
-    type:  FETCH.SUCCESS,
-    payload,
-})
-const fetchError = error => ({
-    type:  FETCH.ERROR,
-    error,
-})
+const fetchStart = mac(FETCH.START)
+const fetchSuccess = mac(FETCH.SUCCESS, 'payload')
+const fetchError = mac(FETCH.ERROR, 'error')
 
 const url = 'https://jsonplaceholder.typicode.com/users'
 
