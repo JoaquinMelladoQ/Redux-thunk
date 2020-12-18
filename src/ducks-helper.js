@@ -39,3 +39,9 @@ export const makeType = m => (a, isAsync) => {
       return state
     }
   }
+
+  export const reduceReducers = (...reducers) => (prevState, value, ...args) =>
+    reducers.reduce(
+      (newState, reducer) => reducer(newState, value, ...args),
+      prevState,
+  )
