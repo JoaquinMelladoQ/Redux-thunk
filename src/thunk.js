@@ -1,9 +1,11 @@
-import { makeType, asyncMac, createReducer } from './ducks-helper'
+import { makeType, asyncMac, createReducer, reduceReducers } from './ducks-helper'
 import { fetchReducer, addReducer } from './hors'
 
 const t = makeType('thunk')
 const FETCH = t('fetch', true)
+const ADD = t('add', true)
 const fetchAc = asyncMac(FETCH)
+const addAc = asyncMac(ADD)
 
 const initialState = {
   data: {
@@ -13,7 +15,10 @@ const initialState = {
   fetched: false,
   error: null,
 }
-export default createReducer(initialState, fetchReducer(FETCH))
+const r1 = createReducer(initialState, fetchReducer(FETCH))
+const r2 = createReducer(initialState, addReducer(ADD))
+
+export default reduceReducers(r1, r2)
 // eslint-disable-next-line import/no-anonymous-default-export
 export const miThunk = paylaod => ({
   actions: fetchAc,
