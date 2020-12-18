@@ -15,16 +15,10 @@ const initialState = {
 }
 export default createReducer(initialState, fetchReducer(FETCH))
 // eslint-disable-next-line import/no-anonymous-default-export
-export const miThunk = payload =>
-    async (dispatch, getState) => {
-        const url = 'https://jsonplaceholder.typicode.com/users'
-        dispatch(fetchAc.start())
-        try {
-          const result = await fetch(url)
-          const json = await result.json()
-          dispatch(fetchAc.success(json))
-          console.log(json)  
-        } catch (error) {
-          dispatch(fetchAc.error(error))  
-        }
-}
+export const miThunk = paylaod => ({
+  actions: fetchAc,
+  request: async () => {
+    const result = await fetch('https://jsonplaceholder.typicode.com/users')
+    return await result.json()
+  }
+})
