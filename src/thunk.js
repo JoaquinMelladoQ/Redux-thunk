@@ -27,8 +27,8 @@ function asyncMac(types) {
   }
 }
 
-function createReducer(initialState: {}, actionHandlers: {}): Reducer {
-  return function reducer(state = initialState, action: any){
+function createReducer(initialState, actionHandlers){
+  return function reducer(state = initialState, action){
     if (actionHandlers.hasOwnProperty(action.type)) {
       const newState = actionHandlers[action.type](state, action)
       if (newState !== state) {
@@ -57,28 +57,11 @@ const initialState = {
     error: null,
 }
 
-export default function reducer (state = initialState, action) {
-  console.log(action)
-  switch (action.type) {
-    case FETCH.START:
-      return {
-        ...state,
-        fetching: true,
-      }
-    case FETCH.SUCCESS:
-      return {
-        ...state,
-        data: action.payload,
-      } 
-    case FETCH.ERROR:
-      return {
-        ...state,
-        error: action.error
-      }
-    default:
-      return state
-  }
-}
+export default createReducer(initialState, {
+  [FETCH.START]: state => ({ ...state, fetching: true }),
+  [FETCH.SUCCESS]: (state, { payload }) => ({ ...state, data: payload }),
+  [FETCH.ERROR]: (state, { error }) => ({ ...state, error }),
+})
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export const miThunk = payload =>
