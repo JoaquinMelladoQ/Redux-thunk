@@ -19,6 +19,14 @@ function mac(type, ...argNames) {
   }
 }
 
+function asyncMac(types) {
+  return {
+    error: mac(`${types.ERROR}`, 'error'),
+    start: mac(`${types.START}`),
+    success: mac(`${types.SUCCESS}`, 'payload'),
+  }
+}
+
 const t = makeType('thunk')
 
 const FETCH = t('fetch', true)
