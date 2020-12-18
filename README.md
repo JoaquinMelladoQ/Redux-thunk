@@ -12,3 +12,4 @@
 })
 + Type creators
 + Action creators(make action creator)(async mac)
++ Duck Helper / Eliminating boilerplate
