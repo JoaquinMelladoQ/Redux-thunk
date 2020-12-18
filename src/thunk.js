@@ -8,6 +8,20 @@ const makeType = m => (a, isAsync) => {
   }
   return `${m}/${a}`
 }
+
+function mac(type, ...argNames) {
+  return function ac(...args) {
+    const action = { type }
+    argNames.forEach((arg, index) => {
+      action[argNames[index]] = args[index]
+    })
+    return action 
+  }
+}
+
+
+
+
 const t = makeType('thunk')
 
 const FETCH = t('fetch', true)
