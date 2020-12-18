@@ -15,3 +15,4 @@
 + Duck Helper / Eliminating boilerplate
 + create Function fetchReducer: HORS
 + Middlewares Custom
++ REDUCE REDUCERS FUNCTION
