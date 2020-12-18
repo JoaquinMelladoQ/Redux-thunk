@@ -11,4 +11,4 @@
     console.log(obj)
 })
 + Type creators
-+ Action creators
++ Action creators(make action creator)(async mac)
