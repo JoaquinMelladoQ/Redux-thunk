@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk' 
+import asyncMiddleware from './async-middleware'
 import { createStore, applyMiddleware } from 'redux'
 import './index.css'
 import App from './App'
@@ -14,7 +15,7 @@ const initialState = {
   selected: 1,
 }
 
-const store = createStore(reducer, applyMiddleware(thunk))
+const store = createStore(reducer, applyMiddleware(thunk, asyncMiddleware))
 ReactDOM.render(
   <Provider store={store}>
     <App />
