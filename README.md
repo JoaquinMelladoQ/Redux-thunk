@@ -13,3 +13,5 @@
 + Type creators
 + Action creators(make action creator)(async mac)
 + Duck Helper / Eliminating boilerplate
++ create Function fetchReducer: HORS
++ Middlewares Custom
