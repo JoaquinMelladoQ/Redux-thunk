@@ -1,5 +1,5 @@
 import { makeType, asyncMac, createReducer } from './ducks-helper'
-import { fetchReducer } from './hors'
+import { fetchReducer, addReducer } from './hors'
 
 const t = makeType('thunk')
 const FETCH = t('fetch', true)
