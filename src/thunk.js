@@ -1,5 +1,7 @@
-
+import { crudHOD } from './hods' 
 // eslint-disable-next-line import/no-anonymous-default-export
+
+const { reducer } = crudHOD('thunk')
 export const miThunk = paylaod => ({
   actions: fetchAc,
   request: async () => {
