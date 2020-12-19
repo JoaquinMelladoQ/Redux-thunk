@@ -1,3 +1,6 @@
 import { crudHOD } from './hods' 
 
-const { reducer } = crudHOD('thunk', 'https://jsonplaceholder.typicode.com/users')
+const { reducer, get } = crudHOD('thunk', 'https://jsonplaceholder.typicode.com/users')
+
+export default reducer
+export const miThunk = get
