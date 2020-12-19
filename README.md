@@ -16,3 +16,4 @@
 + create Function fetchReducer: HORS
 + Middlewares Custom
 + REDUCE REDUCERS FUNCTION
++ HIGH ORDER DUCKS / CRUD HOD
