@@ -22,7 +22,7 @@ const r1 = createReducer(initialState, fetchReducer(FETCH))
 const r2 = createReducer(initialState, addReducer(ADD))
 const r3 = createReducer(initialState, delReducer(DEL))
 
-export default reduceReducers(r1, r2)
+export default reduceReducers(r1, r2, r3)
 // eslint-disable-next-line import/no-anonymous-default-export
 export const miThunk = paylaod => ({
   actions: fetchAc,
